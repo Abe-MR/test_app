@@ -1,17 +1,7 @@
 import sys
+from screenres import get_screen_resolution
 from PyQt6.QtCore import QSize, Qt
 from PyQt6.QtWidgets import QApplication, QMainWindow, QPushButton
-from screeninfo import get_monitors
-
-def get_screen_resolution():
-    width = 0
-    height = 0
-    for m in get_monitors():
-        item = str(m).replace("(", "").replace(",", "").replace("=", " ")
-        width = int(item.split(" ")[5])
-        height = int(item.split(" ")[7])
-        break
-    return (width, height)
 
 class MainWindow(QMainWindow):
     def __init__(self):
